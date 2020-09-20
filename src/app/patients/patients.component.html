@@ -1,0 +1,70 @@
+<p>patients works!</p>
+<p>Patient Name : {{getPatientName()}}</p>
+<p>Patient Id : {{patientId}}</p>
+
+<span [innerHTML]="pts"></span>
+<ul>
+  <li *ngFor="let patient of ptList">
+    <span>
+      Patient Id : {{patient.id}}
+    </span>
+
+    <span>
+      Patient Name : {{patient.name}}
+    </span>
+
+  </li>
+</ul>
+
+<tr>
+  <td [attr.colspan]="colspan1">
+      Table Content
+  </td>
+</tr>
+<br><br><br><br><br>
+<button class="btn btn-primary" [class.active]="isActive">Button</button>
+<br><br><br><br>
+<button class="btn btn-primary" [style.backgroundColor]="isActive ? 'Black' : 'Blue' "> Button2</button>
+<br><br><br><br>
+<input type="text" class="form-control" #email (keyup.enter)="onSave(email.value)" placeholder="Enter email"/><br><br>
+<button class="btn btn-primary" (click)="onClicked(email.value)"> email Button </button><br><br>
+<input type="text" class="form-control" (keyup)="onTextEvent($event)" placeholder="Enter email" />
+
+<br><br><br><br>
+<div (click)="onDivClicked()">
+  <button class="btn btn-primary" (click)="onBtnClicked()"> Simple Button </button>
+</div>
+
+<br><br><br><br>
+<div (click)="onDivClicked_V2($event)">
+  <button class="btn btn-primary" (click)="onBtnClicked_V2($event)"> Simple Button V2 </button>
+</div>
+
+
+<div class="form-group">
+  <label>Email address with two way Binding :</label>
+  <input type="email" class="form-control" [(ngModel)]="emailId" (keyup.enter)="onTestTwoBinding()" />
+</div>
+
+<span> Patients Table </span>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Patient Id</th>
+      <th>Patient Name</th>
+      <th>Patient Date Of Birth</th>
+      <th>Fees Paid</th>
+    </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let patient of ptList">
+        <td>{{patient.id}}</td>
+        <td>{{patient.name}}</td>
+        <td>{{patient.dateOfBirth}}</td>
+        <td>{{patient.fees}}</td>
+      </tr>
+  </tbody>
+
+</table>
